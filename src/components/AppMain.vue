@@ -25,8 +25,8 @@
                 .finally(function(){
                 });
             },
-            getFlags(){
-                axios.get('')
+            getSeries(){
+                axios.get('https://api.themoviedb.org/3/discover/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656')
                 .then((response) => {
                     console.log(response.data.results);
                     this.store.cards=response.data.results;
@@ -40,7 +40,9 @@
     },
     created () {
             this.getFilms();
-            console.log(this.getFilms)
+            console.log(this.getFilms);
+            this.getSeries();
+            console.log(this.getSeries)
         }
 }
 </script>

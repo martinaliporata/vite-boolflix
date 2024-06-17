@@ -1,6 +1,7 @@
 <script>
     import axios from 'axios';
     import {store} from '../store.js'
+
     export default {
         data() {
             return {
@@ -40,12 +41,23 @@
             }
         },
         methods: {
-            showChoice() {
+            showChoiceSeries() {
                 axios.get(store.searchInput=== '' ? 'https://api.themoviedb.org/3/discover/movie?api_key=dedeea6fbd3521d56b1b8006f2a2b656' : `https://api.themoviedb.org/3/search/movie?api_key=dedeea6fbd3521d56b1b8006f2a2b656&query=${store.searchInput}`)
                 .then((response) => {
                     this.store.cards=response.data.results;
                     console.log(response)
-                    this.generateImage();
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+                .finally(function(){
+                });
+            },
+            showChoiceTv() {
+                axios.get(store.searchInput=== '' ? 'https://api.themoviedb.org/3/discover/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656': `https://api.themoviedb.org/3/search/tv??api_key=dedeea6fbd3521d56b1b8006f2a2b656&query=${store.searchInput}`)
+                .then((response) => {
+                    this.store.cards=response.data.results;
+                    console.log(response)
                 })
                 .catch(function(error){
                     console.log(error);
@@ -69,7 +81,7 @@
         </nav>
         <nav class="navbar navbar-light bg-light">
             <input type="text" v-model="store.searchInput">
-            <button @click="showChoice">
+            <button @click="showChoiceSeries(); showChoiceTv()">
                 Invio
             </button>
         </nav>
