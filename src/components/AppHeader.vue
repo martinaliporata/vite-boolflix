@@ -40,18 +40,6 @@
             }
         },
         methods: {
-            showChoice() {
-                axios.get(store.searchInput=== '' ? 'https://api.themoviedb.org/3/discover/movie?api_key=dedeea6fbd3521d56b1b8006f2a2b656' : `https://api.themoviedb.org/3/search/movie?api_key=dedeea6fbd3521d56b1b8006f2a2b656&query=${store.searchInput}`)
-                .then((response) => {
-                    this.store.cards=response.data.results;
-                    console.log(response)
-                })
-                .catch(function(error){
-                    console.log(error);
-                })
-                .finally(function(){
-                });
-            }
         }
     }
 </script>
@@ -65,12 +53,6 @@
                     {{ element.name }}
                 </li>
             </ul>
-        </nav>
-        <nav class="navbar navbar-light bg-light">
-            <input type="text" v-model="store.searchInput">
-            <button @click="showChoice">
-                Invio
-            </button>
         </nav>
     </header>
 </template>

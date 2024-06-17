@@ -34,7 +34,11 @@
 </script>
 
 <template>
-    
+    <main>
+        <div v-for="(card, index) in store.cards" :key="index">
+            <SingleCard :card="card"/>
+        </div>
+    </main>
 </template>
 
 <style lang="scss" scoped>
