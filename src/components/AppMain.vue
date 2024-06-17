@@ -24,7 +24,19 @@
                 })
                 .finally(function(){
                 });
-        },
+            },
+            getFlags(){
+                axios.get('')
+                .then((response) => {
+                    console.log(response.data.results);
+                    this.store.cards=response.data.results;
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+                .finally(function(){
+                });
+            }
     },
     created () {
             this.getFilms();
@@ -43,6 +55,7 @@
 
 <style lang="scss" scoped>
     @use '../node_modules/bootstrap/scss/bootstrap.scss';
+    
 </style>
 
 

@@ -36,7 +36,7 @@
                         link: '#',
                         active: false,
                     }
-                ]
+                ],
             }
         },
         methods: {
@@ -45,6 +45,7 @@
                 .then((response) => {
                     this.store.cards=response.data.results;
                     console.log(response)
+                    this.generateImage();
                 })
                 .catch(function(error){
                     console.log(error);
@@ -77,4 +78,5 @@
 
 <style lang="scss">
     @use '../node_modules/bootstrap/scss/bootstrap.scss';
+    
 </style>
