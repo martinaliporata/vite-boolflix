@@ -1,4 +1,3 @@
-
 <script>
     import {store} from '../store.js'
     export default {
@@ -34,7 +33,7 @@
 </script>
 
 <template>
-    <div class="card">
+    <div>
         <img :src="`https://image.tmdb.org/t/p/w500/${card.poster_path}`" style="width: 200px; height: 200px;" alt="">
         <p>
             {{ card.title }}

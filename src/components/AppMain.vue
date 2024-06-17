@@ -1,11 +1,13 @@
 <script>
-    import SingleCard from './SingleCard.vue';
-    import axios from 'axios'
-    import {store} from '../store.js'
+    import SingleCardFilm from './SingleCardFilm.vue';
+    import SingleCardSeries from './SingleCardSeries.vue'
+    import axios from 'axios';
+    import {store} from '../store.js';
 
     export default {
         components : {
-            SingleCard
+            SingleCardFilm,
+            SingleCardSeries,
         },
         data() {
             return {
@@ -49,8 +51,11 @@
 
 <template>
     <main>
-        <div v-for="(card, index) in store.cards" :key="index">
-            <SingleCard :card="card"/>
+        <div v-for="(card, index) in store.cards" :key="index" class="card-film" >
+            <SingleCardFilm :card="card"/>
+        </div>
+        <div v-for="(card, index) in store.series" :key="index" class="card-tv-series">
+            <SingleCardSeries :card="card"/>
         </div>
     </main>
 </template>
