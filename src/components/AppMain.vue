@@ -31,6 +31,7 @@
                 axios.get('https://api.themoviedb.org/3/discover/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656')
                 .then((response) => {
                     console.log(response.data.results);
+                    // se qui scrivo .series non va
                     this.store.cards=response.data.results;
                 })
                 .catch(function(error){

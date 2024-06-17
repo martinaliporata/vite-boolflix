@@ -15,13 +15,13 @@
         },
         methods: {
         generateImage() {
-                if (this.store.cards.original_language === 'en') {
+                if (this.store.series.original_language === 'en') {
                     this.languageFlag = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6NjUzMsxiPYELyWrKg17MA4eLo47fkkM2w&s'
-                } else if (this.store.cards.original_language === 'fr') {
+                } else if (this.store.series.original_language === 'fr') {
                     this.languageFlag= 'https://www.iconarchive.com/download/i109136/wikipedia/flags/FR-France-Flag.1024.png'
-                } else if (this.store.cards.original_language === 'es') {
+                } else if (this.store.series.original_language === 'es') {
                     this.languageFlag= 'https://icons.iconarchive.com/icons/wikipedia/flags/512/ES-Spain-Flag-icon.png'
-                } else if (this.store.cards.original_language === 'it') {
+                } else if (this.store.series.original_language === 'it') {
                     this.languageFlag= 'https://www.countryflags.com/wp-content/uploads/italy-flag-png-xl.png'
                 }
             }
@@ -34,7 +34,7 @@
 
 <template>
     <div>
-        <img :src="`https://image.tmdb.org/t/p/w500/${card.poster_path}`" style="width: 200px; height: 200px;" alt="">
+        <img :src="`https://image.tmdb.org/t/p/w500/${series.poster_path}`" style="width: 200px; height: 200px;" alt="">
         <p>
             {{ series.name }}
         </p>
