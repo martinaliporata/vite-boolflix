@@ -76,9 +76,14 @@
 
     main{
         display: flex;
-        align-items: start;
         justify-content: space-between;
+        align-items: start;
         flex-wrap: wrap;
         padding: 0 2rem;
+    }
+
+    .card-film {
+        width: calc(100% / 4);
+        aspect-ratio: 2;
     }
 </style>

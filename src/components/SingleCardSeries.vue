@@ -14,9 +14,6 @@
             }
         },
         methods: {
-        getMovieImg () {
-            return `'https://image.tmdb.org/t/p/w342' ${store.series.poster_path}`;
-        },
         generateImage() {
             // perché non ho messo lo store?
                 if (this.series.original_language === 'en') {
@@ -33,8 +30,6 @@
             }
         },
         created() {
-            this.getMovieImg();
-            console.log(this.getMovieImg)
             this.generateImage();
             console.log(this.generateImage);
         }
@@ -43,18 +38,22 @@
 
 <template>
     <article>
-        <img :src="`https://image.tmdb.org/t/p/w500/${series.poster_path}`" style="width: 200px; height: 200px;" alt="">
-        <p>
-            {{ series.name }}
-        </p>
-        <p>
-            {{ series.original_name }}
-        </p>
-        <img :src="languageFlag" alt="">
-        <p>
-            <i v-for="(star, index) in (Math.ceil(series.vote_average / 2))" :key="index" class="fa-solid fa-star"></i>
-        </p>
-        <img class="movie-image" :src="getMovieImg" alt="">
+        <div class="copertina">
+            <img :src="`https://image.tmdb.org/t/p/w500/${series.poster_path}`" style="width: 200px; height: 200px;" alt="">
+        </div>
+        <div class="info-card">
+            <p>
+                Titolo: {{ series.name }}
+            </p>
+            <p>
+                Titolo originale: {{ series.original_name }}
+            </p>
+            <span> Lingua: <img :src="languageFlag" alt="" class="flag-image">
+            </span>
+            <p>
+                Voto: <i v-for="(star, index) in (Math.ceil(series.vote_average / 2))" :key="index" class="fa-solid fa-star"></i>
+            </p>
+        </div>
     </article>
 </template>
 
@@ -66,5 +65,27 @@
         border-radius: .5rem;
         margin-bottom: 1rem;
         padding: 1rem;
+    }
+
+    .flag-image {
+        width: 50px;
+        height: 30px;
+    }
+
+    .info-card {
+        display: none;
+    }
+
+    .info-card:hover {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .copertina:hover {
+        display: none;
+    }
+
+    .copertina {
+        display: inline-block;
     }
 </style>
