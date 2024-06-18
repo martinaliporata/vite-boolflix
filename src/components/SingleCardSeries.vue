@@ -15,18 +15,20 @@
         },
         methods: {
         getMovieImg () {
-            let linkImg = `'https://image.tmdb.org/t/p/w342' ${store.cards.poster_path}`;
-            return linkImg;
+            return `'https://image.tmdb.org/t/p/w342' ${store.series.poster_path}`;
         },
         generateImage() {
-                if (this.store.series.original_language === 'en') {
+            // perché non ho messo lo store?
+                if (this.series.original_language === 'en') {
                     this.languageFlag = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6NjUzMsxiPYELyWrKg17MA4eLo47fkkM2w&s'
-                } else if (this.store.series.original_language === 'fr') {
-                    this.languageFlag= 'https://www.iconarchive.com/download/i109136/wikipedia/flags/FR-France-Flag.1024.png'
-                } else if (this.store.series.original_language === 'es') {
-                    this.languageFlag= 'https://icons.iconarchive.com/icons/wikipedia/flags/512/ES-Spain-Flag-icon.png'
-                } else if (this.store.series.original_language === 'it') {
-                    this.languageFlag= 'https://www.countryflags.com/wp-content/uploads/italy-flag-png-xl.png'
+                } else if (this.series.original_language === 'fr') {
+                    this.languageFlag = 'https://www.iconarchive.com/download/i109136/wikipedia/flags/FR-France-Flag.1024.png'
+                } else if (this.series.original_language === 'es') {
+                    this.languageFlag = 'https://icons.iconarchive.com/icons/wikipedia/flags/512/ES-Spain-Flag-icon.png'
+                } else if (this.series.original_language === 'it')  {
+                    this.languageFlag = 'https://www.countryflags.com/wp-content/uploads/italy-flag-png-xl.png'
+                } else {
+                    this.languageFlag = 'Unknown'
                 }
             }
         },
@@ -64,9 +66,5 @@
         border-radius: .5rem;
         margin-bottom: 1rem;
         padding: 1rem;
-    }
-
-    img.movie-image{
-        width: 300px;
     }
 </style>

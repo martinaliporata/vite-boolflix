@@ -15,16 +15,17 @@
         },
         methods: {
         getMovieImg () {
-            return `'https://image.tmdb.org/t/p/w342' ${store.cards.poster_path}`;
+            return `'https://image.tmdb.org/t/p/w342'${store.cards.poster_path}`;
         },
         generateImage() {
+            // perché non ho messo lo store?
                 if (this.card.original_language === 'en') {
                     this.languageFlag = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6NjUzMsxiPYELyWrKg17MA4eLo47fkkM2w&s'
-                } else if (this.store.cards.original_language === 'fr') {
+                } else if (this.card.original_language === 'fr') {
                     this.languageFlag= 'https://www.iconarchive.com/download/i109136/wikipedia/flags/FR-France-Flag.1024.png'
-                } else if (this.store.cards.original_language === 'es') {
+                } else if (this.card.original_language === 'es') {
                     this.languageFlag= 'https://icons.iconarchive.com/icons/wikipedia/flags/512/ES-Spain-Flag-icon.png'
-                } else if (this.store.cards.original_language === 'it') {
+                } else if (this.card.original_language === 'it')  {
                     this.languageFlag= 'https://www.countryflags.com/wp-content/uploads/italy-flag-png-xl.png'
                 }
             }
@@ -47,11 +48,11 @@
         <p>
             {{ card.original_title }}
         </p>
-        <!-- <img :src="languageFlag" alt=""> -->
+        <img :src="languageFlag" alt="">
         <p>
             <i v-for="(star, index) in (Math.ceil(card.vote_average / 2))" :key="index" class="fa-solid fa-star"></i>
         </p>
-        <img class="movie-image" :src="getMovieImg" alt="">
+        <img class="movie-image" :src="getMovieImg()" alt="">
     </article>
 </template>
 
