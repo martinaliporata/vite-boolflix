@@ -31,7 +31,6 @@
                 axios.get('https://api.themoviedb.org/3/discover/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656')
                 .then((response) => {
                     console.log(response.data.results);
-                    // se qui scrivo .series non va
                     this.store.series=response.data.results;
                 })
                 .catch(function(error){
@@ -73,7 +72,13 @@
 
 <style lang="scss" scoped>
     @use '../node_modules/bootstrap/scss/bootstrap.scss';
-    
+    @use '../style/general.scss';
+
+    main{
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 2rem;
+    }
 </style>
-
-

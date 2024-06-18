@@ -79,7 +79,7 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar">
             <input type="text" v-model="store.searchInput">
             <button @click="showChoiceMovies(); showChoiceSeries()">
                 Invio
@@ -90,5 +90,39 @@
 
 <style lang="scss">
     @use '../node_modules/bootstrap/scss/bootstrap.scss';
-    
+    @use '../style/general.scss';
+
+        header{
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div.navbar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1b1b1b;
+
+        img{
+            height: 60px;
+            margin: 0 3rem;
+        }
+    }
+
+        ul{
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            
+            li{
+                margin-right: 1rem;
+                color: rgb(195, 193, 193);
+
+                &:hover{
+                    color: red;
+                }
+            }
+        }
 </style>

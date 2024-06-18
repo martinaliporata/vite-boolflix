@@ -14,6 +14,10 @@
             }
         },
         methods: {
+        getMovieImg () {
+            let linkImg = `'https://image.tmdb.org/t/p/w342' ${store.cards.poster_path}`;
+            return linkImg;
+        },
         generateImage() {
                 if (this.store.series.original_language === 'en') {
                     this.languageFlag = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6NjUzMsxiPYELyWrKg17MA4eLo47fkkM2w&s'
@@ -27,13 +31,16 @@
             }
         },
         created() {
+            this.getMovieImg();
+            console.log(this.getMovieImg)
             this.generateImage();
+            console.log(this.generateImage);
         }
 }
 </script>
 
 <template>
-    <div>
+    <article>
         <img :src="`https://image.tmdb.org/t/p/w500/${series.poster_path}`" style="width: 200px; height: 200px;" alt="">
         <p>
             {{ series.name }}
@@ -45,9 +52,21 @@
         <p>
             <i v-for="(star, index) in (Math.ceil(series.vote_average / 2))" :key="index" class="fa-solid fa-star"></i>
         </p>
-    </div>
+        <img class="movie-image" :src="getMovieImg" alt="">
+    </article>
 </template>
 
 <style lang="scss" scoped>
-    
+    @use '../style/general.scss';
+
+    article{
+        border: 1px solid red;
+        border-radius: .5rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    img.movie-image{
+        width: 300px;
+    }
 </style>
