@@ -15,11 +15,10 @@
         },
         methods: {
         getMovieImg () {
-            let linkImg = `'https://image.tmdb.org/t/p/w342' ${store.cards.poster_path}`;
-            return linkImg;
+            return `'https://image.tmdb.org/t/p/w342' ${store.cards.poster_path}`;
         },
         generateImage() {
-                if (this.store.cards.original_language = this.store.languageFlags === 'en') {
+                if (this.card.original_language === 'en') {
                     this.languageFlag = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6NjUzMsxiPYELyWrKg17MA4eLo47fkkM2w&s'
                 } else if (this.store.cards.original_language === 'fr') {
                     this.languageFlag= 'https://www.iconarchive.com/download/i109136/wikipedia/flags/FR-France-Flag.1024.png'
