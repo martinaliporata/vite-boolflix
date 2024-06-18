@@ -15,7 +15,7 @@
         },
         methods: {
         getMovieImg () {
-            return `'https://image.tmdb.org/t/p/w342'${store.cards.poster_path}`;
+            return `'https://image.tmdb.org/t/p/w342'${this.card.poster_path}`;
         },
         generateImage() {
             // perché non ho messo lo store?
@@ -41,7 +41,7 @@
 
 <template>
     <article>
-        <img :src="`https://image.tmdb.org/t/p/w500/${card.poster_path}`" style="width: 200px; height: 200px;" alt="">
+        <!-- <img :src="`https://image.tmdb.org/t/p/w500/${card.poster_path}`" style="width: 200px; height: 200px;" alt=""> -->
         <p>
             {{ card.title }}
         </p>
