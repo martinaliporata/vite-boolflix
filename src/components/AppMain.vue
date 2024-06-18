@@ -32,7 +32,7 @@
                 .then((response) => {
                     console.log(response.data.results);
                     // se qui scrivo .series non va
-                    this.store.cards=response.data.results;
+                    this.store.series=response.data.results;
                 })
                 .catch(function(error){
                     console.log(error);
@@ -56,7 +56,7 @@
             <SingleCardFilm :card="card"/>
         </div>
         <div v-for="(card, index) in store.series" :key="index" class="card-tv-series">
-            <SingleCardSeries :card="card"/>
+            <SingleCardSeries :series="card"/>
         </div>
     </main>
 </template>

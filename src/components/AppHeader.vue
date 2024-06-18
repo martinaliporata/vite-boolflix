@@ -54,7 +54,7 @@
                 });
             },
             showChoiceSeries() {
-                axios.get(store.searchInput=== '' ? 'https://api.themoviedb.org/3/discover/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656': `https://api.themoviedb.org/3/search/tv??api_key=dedeea6fbd3521d56b1b8006f2a2b656&query=${store.searchInput}`)
+                axios.get(store.searchInput=== '' ? 'https://api.themoviedb.org/3/discover/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656': `https://api.themoviedb.org/3/search/tv?api_key=dedeea6fbd3521d56b1b8006f2a2b656&query=${store.searchInput}`)
                 .then((response) => {
                     this.store.series=response.data.results;
                     console.log(response)
