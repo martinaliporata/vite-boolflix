@@ -39,14 +39,24 @@
                 })
                 .finally(function(){
                 });
+            },
+            getStarMovieRate (MovieRate) {
+                let stars = this.store.cards.vote_average;
+                stars = Number.parseInt(MovieRate) / 2;
+                return stars;
+            },
+            getStarSeriesRate (seriesRate) {
+                let stars = this.store.series.vote_average;
+                stars = Number.parseInt(seriesRate) / 2;
+                return stars;
             }
-    },
-    created () {
-            this.getFilms();
-            console.log(this.getFilms);
-            this.getSeries();
-            console.log(this.getSeries)
-        }
+            },
+            created () {
+                    this.getFilms();
+                    console.log(this.getFilms);
+                    this.getSeries();
+                    console.log(this.getSeries)
+                }
 }
 </script>
 

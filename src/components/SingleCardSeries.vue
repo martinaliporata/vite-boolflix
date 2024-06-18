@@ -43,7 +43,7 @@
         </p>
         <img :src="languageFlag" alt="">
         <p>
-            {{ series.vote_average }}
+            <i v-for="(star, index) in (Math.ceil(series.vote_average / 2))" :key="index" class="fa-solid fa-star"></i>
         </p>
     </div>
 </template>
